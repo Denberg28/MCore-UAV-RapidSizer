@@ -1,0 +1,41 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build / packaging
+build/
+dist/
+*.spec
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Local logs / scratch
+*.log
+*.tmp
+*.bak
+
+# Private or local aircraft data
+# Put flight-test or proprietary aircraft files here.
+data/projects/private/
+
+# OpenCode local dependencies/cache
+.opencode/node_modules/
+.opencode/.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db

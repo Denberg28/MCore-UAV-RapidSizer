@@ -1,0 +1,60 @@
+name: MCore CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Python 3.12 / Windows
+    runs-on: windows-latest
+    timeout-minutes: 20
+    env:
+      QT_QPA_PLATFORM: offscreen
+      PYTHONUTF8: "1"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Compile application
+        shell: pwsh
+        run: |
+          python -m compileall -q app
+
+      - name: Run complete test suite
+        shell: pwsh
+        run: |
+          python -m pytest -q
+
+      - name: Run deterministic CLI smoke test
+        shell: pwsh
+        run: |
+          python -m app.rapid_cli analyze data\projects\rapid_sizer_example.json --json | Out-File -Encoding utf8 mcore-analysis.json
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload analysis smoke-test output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mcore-analysis
+          path: mcore-analysis.json
+          if-no-files-found: ignore

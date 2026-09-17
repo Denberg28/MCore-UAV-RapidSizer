@@ -1,0 +1,110 @@
+{
+    "schema_version": "1.0",
+    "name": "MCore Rapid Prototype Example",
+    "geometry": {
+        "wing_span_m": 1.2,
+        "mean_chord_m": 0.2
+    },
+    "mass": {
+        "aircraft_mass_kg": 1.2
+    },
+    "propulsion": {
+        "motor_kv": 1500,
+        "propeller_diameter_in": 8.0,
+        "propeller_pitch_in": 6.0
+    },
+    "battery": {
+        "cell_count": 3,
+        "capacity_ah": 2.2,
+        "discharge_c": 30.0
+    },
+    "requirements": {
+        "stall_speed_m_s": 10.0,
+        "cruise_speed_m_s": 15.0,
+        "endurance_min": 20.0,
+        "climb_rate_m_s": 2.0,
+        "aspect_ratio_target": 7.0,
+        "cl_max": 1.2,
+        "cd0": 0.035,
+        "oswald_efficiency": 0.8,
+        "propulsive_efficiency": 0.65,
+        "battery_reserve_fraction": 0.2,
+        "air_density_kg_m3": 1.225,
+        "thrust_to_weight_target": 0.6,
+        "horizontal_tail_volume_coefficient": 0.5,
+        "vertical_tail_volume_coefficient": 0.04,
+        "tail_arm_chord_ratio": 3.0,
+        "horizontal_tail_aspect_ratio": 4.0,
+        "vertical_tail_aspect_ratio": 1.8,
+        "wing_le_x_m": 0.3,
+        "cg_forward_mac_percent": 20.0,
+        "cg_aft_mac_percent": 30.0
+    },
+    "mass_properties": {
+        "items": [
+            {
+                "name": "Motor + Prop",
+                "mass_kg": 0.12,
+                "x_m": 0.05,
+                "y_m": 0.0,
+                "z_m": 0.0,
+                "source": "MEASURED",
+                "uncertainty_kg": 0.002
+            },
+            {
+                "name": "Battery",
+                "mass_kg": 0.22,
+                "x_m": 0.3,
+                "y_m": 0.0,
+                "z_m": 0.02,
+                "source": "MEASURED",
+                "uncertainty_kg": 0.002
+            },
+            {
+                "name": "Wing",
+                "mass_kg": 0.28,
+                "x_m": 0.35,
+                "y_m": 0.0,
+                "z_m": 0.0,
+                "source": "ESTIMATED",
+                "uncertainty_kg": 0.015
+            },
+            {
+                "name": "Fuselage",
+                "mass_kg": 0.25,
+                "x_m": 0.4,
+                "y_m": 0.0,
+                "z_m": 0.0,
+                "source": "ESTIMATED",
+                "uncertainty_kg": 0.015
+            },
+            {
+                "name": "Avionics",
+                "mass_kg": 0.1,
+                "x_m": 0.32,
+                "y_m": 0.0,
+                "z_m": 0.02,
+                "source": "MEASURED",
+                "uncertainty_kg": 0.002
+            },
+            {
+                "name": "Tail",
+                "mass_kg": 0.08,
+                "x_m": 0.75,
+                "y_m": 0.0,
+                "z_m": 0.0,
+                "source": "ESTIMATED",
+                "uncertainty_kg": 0.005
+            },
+            {
+                "name": "Payload",
+                "mass_kg": 0.15,
+                "x_m": 0.33,
+                "y_m": 0.0,
+                "z_m": 0.03,
+                "source": "MEASURED",
+                "uncertainty_kg": 0.002
+            }
+        ]
+    }
+}

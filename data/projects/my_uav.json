@@ -1,0 +1,20 @@
+{
+    "name": "My UAV",
+    "geometry": {
+        "wing_span_m": 1.2,
+        "mean_chord_m": 0.2
+    },
+    "mass": {
+        "aircraft_mass_kg": 1.2
+    },
+    "propulsion": {
+        "motor_kv": 1500.0,
+        "propeller_diameter_in": 8.0,
+        "propeller_pitch_in": 6.0
+    },
+    "battery": {
+        "cell_count": 3,
+        "capacity_ah": 2.2,
+        "discharge_c": 30.0
+    }
+}

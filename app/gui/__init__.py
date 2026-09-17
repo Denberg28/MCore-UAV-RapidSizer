@@ -1,0 +1,1 @@
+"""MCore GUI package."""
